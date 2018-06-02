@@ -1,0 +1,16 @@
+<div>
+    <p *ngIf="isOn">
+        <app-question (select)="answer($event)" [question]="question"></app-question>
+        <button *ngIf="isAnswered" (click)="next()" class="btn btn-primary btn-lg">Next</button>
+    </p>
+
+    <div *ngIf="!isOn && answers.length >0">
+        <app-game-result [answers]="answers"></app-game-result>
+    </div>
+
+    <div class="row" *ngIf="!isOn">
+        <div class="col-sm-12">
+            <button (click)="start()"  class="btn btn-primary btn-lg">Start</button>
+        </div>
+    </div>
+</div>

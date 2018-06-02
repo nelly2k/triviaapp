@@ -1,0 +1,27 @@
+<div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>{{getCorrect()}} out of {{answers.length}}</h1>
+    </div>
+
+  </div>
+  <div *ngFor="let answer of answers" class="row">
+    <div class="col-sm-12">
+      <div class="card" style="margin-bottom: 1em;" [ngClass]="getMyClass(answer,'border')">
+
+        <div class="card-header" innerHTML={{answer.description}}></div>
+        <div class="card-body" [ngClass]="getMyClass(answer,'text')">
+
+          <h5 class="card-title">
+            Your answer
+          </h5>
+          <p innerHTML={{answer.options[answer.answer]}}></p>
+          <h5 class="card-title">
+            Correct Answer
+          </h5>
+          <p innerHTML={{answer.options[answer.correct]}}></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
